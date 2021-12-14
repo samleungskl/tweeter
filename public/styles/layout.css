@@ -6,6 +6,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -23,3 +24,27 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+main.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.bodyLeft {
+  flex-basis: 5%;
+}
+
+.bodyRight {
+  flex-basis: 5%;
+}
+
+.content {
+  flex-basis: 90%;
+}
