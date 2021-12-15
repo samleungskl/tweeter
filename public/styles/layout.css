@@ -33,18 +33,9 @@ body {
 
 main.container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.bodyLeft {
-  flex-basis: 5%;
-}
-
-.bodyRight {
-  flex-basis: 5%;
-}
-
-.content {
-  flex-basis: 90%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 5%;
+  margin-right: 5%;
+  align-content: e;
 }
