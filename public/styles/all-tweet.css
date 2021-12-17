@@ -1,4 +1,4 @@
-article{
+article {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,10 +6,14 @@ article{
   border-left: 4px solid;
   border-right: 4px solid;
   border-bottom: 4px solid;
-  padding: 10px 10px 10px 10px;
+  margin: 2% 2% 2% 2%;
 }
 
-article header{
+article:hover {
+  box-shadow: 10px 5px #a3b8ff;
+}
+
+article header {
   height: auto;
   display: flex;
   flex-direction: row;
@@ -17,13 +21,19 @@ article header{
   background-color: #f4f1ec;
   background-image: none;
   color: #545149;
-  font-size: 24px;
-  margin: 10px 20px 10px 20px;
+  font-size: 0.9em;
+  margin: 2% 2% 2% 2%;
 }
 
-article header .userHandle{
+article header .profileAndName {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+article header .userHandle {
   font-weight: 600;
-  color:grey;
+  color: grey;
 }
 
 article p {
@@ -32,27 +42,31 @@ article p {
   font-size: large;
   padding-bottom: 20px;
   text-indent: 20px;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
-article footer{
+article footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10px 20px 10px 20px;
+  margin: 2% 2% 2% 2%;
   font-size: medium;
 }
 
-article footer .socials{
+article footer .socials {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   width: 120px;
   color: #4056A1;
 }
-.fas:hover { 
-  color: rgb(231, 142, 8);
+
+.fas:hover {
+  color: #e78e08;
+  cursor: pointer;
 }
 
-.fa-user{
+.fa-user {
   font-size: xx-large;
 }
