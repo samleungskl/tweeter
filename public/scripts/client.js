@@ -109,7 +109,7 @@ $(document).ready(function() {
   });
 
 
-  $(".newTweetButton").click(function() {
+  $(".composeButton").click(function() {
     $('.new-tweet').slideToggle()
   });
 
