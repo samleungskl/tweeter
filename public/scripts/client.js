@@ -113,5 +113,20 @@ $(document).ready(function() {
     $('.new-tweet').slideToggle()
   });
 
+  $("#ScrollToTop").click(function() {
+    window.scrollTo(0, 0);
+  });
+
+  //followed this jsfiddle https://stackoverflow.com/questions/14249998/jquery-back-to-top
+  $(window).scroll(function() {
+    //console.log('1')
+    console.log($(this).scrollTop())
+  if ($(this).scrollTop() > 100 ){
+    $("#ScrollToTop").show();
+    $("#ScrollToTop").css("display", "flex");
+  } else {
+    $("#ScrollToTop").hide();
+  }
+  });
 
 });
