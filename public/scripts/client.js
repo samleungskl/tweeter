@@ -1,34 +1,26 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 $(document).ready(function() {
-
+  // escape function to prevent Cross-Site Scripting
   const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-  const renderTweets = function(tweets) {
-    // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
 
-    // clear previous infos, otherwise it would duplicate
-    $('#tweets-container').html('');
+  // loop through all tweets in data base
+  const renderTweets = function(tweets) {
+    // clear previous infos, otherwise info would duplicate
+    $('#allTweetsContainer').html('');
 
     for (let tweet of tweets) {
       let $tweet = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-      $(' tweetContent').text();
+      $('#allTweetsContainer').prepend($tweet);
     }
   };
 
 
+  //format data as html and return
   const createTweetElement = function(tweetData) {
-    //const test = ;
     let $tweet = $(`
 <article>
   <header>
@@ -38,13 +30,13 @@ $(document).ready(function() {
   </div>
     <div class="userHandle">${tweetData.user.handle}</div>
   </header>
-  <p class="tweetContent">${escape(tweetData.content.text)}</p>
+  <p class="tweetMessage">${escape(tweetData.content.text)}</p>
   <footer>
     <div>${timeago.format(tweetData.created_at)}</div>
     <div class="socials">
-      <a class="fas fa-flag"></a>
-      <a class="fas fa-retweet"></a>
-      <a class="fas fa-heart"></a>
+      <a class="fas fa-flag turnOrangeWhenHover"></a>
+      <a class="fas fa-retweet turnOrangeWhenHover"></a>
+      <a class="fas fa-heart turnOrangeWhenHover"></a>
     </div>
   </footer>
 </article>
@@ -52,6 +44,8 @@ $(document).ready(function() {
     return $tweet;
   };
 
+
+  // load all tweets from database
   const loadTweets = function() {
     $.ajax({
       type: "GET",
@@ -63,31 +57,32 @@ $(document).ready(function() {
       })
       .catch((error) => {
         console.log('error = ', error);
-      })
-  }
-  loadTweets()
+      });
+  };
+  loadTweets();
 
-  $("#tweetButton").submit(function(event) {
+
+  //when user click the tweet button, submit form
+  $("#newTweetForm").submit(function(event) {
     // prevent the submit button from submitting
     event.preventDefault();
-    // get the length of string inside textarea
-    let textAreaLength = Number($('textarea#tweet-text').val().length)
+
+    // get the length of string inside textarea, trim to remove space
+    let textAreaLength = Number($('textarea#textAreaUserInput').val().trim().length);
     // check if textArea is empty
     if (textAreaLength === 0) {
-      console.log('Path 1')
-      $(".message").html('Message cannot be empty.');
-      $('.alert').slideDown()
+      $("#alertMessage").html('Message cannot be empty.');
+      $('.alert').slideDown();
       // check if character count is under 140
     } else if (textAreaLength > 140) {
-      console.log('Path 2')
-      $(".message").html('Message cannot contain more than 140 characters.');
-      $('.alert').slideDown()
+      $("#alertMessage").html('Message cannot contain more than 140 characters.');
+      $('.alert').slideDown();
     } else {
       //if everything passed, post to server
-      $(".message").html('');
-      $('.alert').slideUp()
-      console.log('Path 3')
-      console.log('this = ', $(this).serialize())
+      $("#alertMessage").html('');
+      $('.alert').slideUp();
+
+      //establish a POST requwst
       const data = $(this).serialize();
       $.ajax({
         type: "POST",
@@ -95,38 +90,16 @@ $(document).ready(function() {
         data: data,
       })
         .then((response) => {
-          console.log('response = ', response)
-          loadTweets()
+          // load tweets again after submitting to instantly display newest tweet
+          loadTweets();
         })
         .catch((error) => {
-          console.log('error = ', error)
-        })
+        });
+
       //clear textarea
-      $("#tweet-text").val('');
+      $("#textAreaUserInput").val('');
       //reset counter
       $("#counter").val('140');
     }
   });
-
-
-  $(".composeButton").click(function() {
-    $('.new-tweet').slideToggle()
-  });
-
-  $("#ScrollToTop").click(function() {
-    window.scrollTo(0, 0);
-  });
-
-  //followed this jsfiddle https://stackoverflow.com/questions/14249998/jquery-back-to-top
-  $(window).scroll(function() {
-    //console.log('1')
-    console.log($(this).scrollTop())
-  if ($(this).scrollTop() > 100 ){
-    $("#ScrollToTop").show();
-    $("#ScrollToTop").css("display", "flex");
-  } else {
-    $("#ScrollToTop").hide();
-  }
-  });
-
 });
