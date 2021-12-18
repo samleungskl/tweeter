@@ -31,8 +31,14 @@
   <!-- new-tweet form CSS -->
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
-  <!-- all-tweet form CSS -->
-  <link rel="stylesheet" href="/styles/all-tweet.css" type="text/css" />
+  <!-- allTweets form CSS -->
+  <link rel="stylesheet" href="/styles/allTweets.css" type="text/css" />
+
+  <!-- buttons form CSS -->
+  <link rel="stylesheet" href="/styles/buttons.css" type="text/css" />
+
+  <!-- responsive form CSS, this has to be the last to load-->
+  <link rel="stylesheet" href="/styles/responsive.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -51,47 +57,62 @@
 </head>
 
 <body>
-  <!-- Top nav bar (fixed) -->
+  <!-- Top nav bar (fixed location) -->
   <nav>
-    <span>tweeter</span>
-
-    <div class="composeButton">
-      <div><strong>Write </strong>a new tweet</div>
-      <i class="fas fa-angle-double-down"></i>
+    <span class="logo">tweeter</span>
+    <div id="composeButton" class="turnOrangeWhenHover">
+      <div><span class="makeBold">Write </span>a new tweet</div>
+      <i id="composeButtonArrow" class="fas fa-angle-double-down turnOrangeWhenHover"></i>
     </div>
   </nav>
+
+  <!-- Profile picture and user name -->
   <div class="profileAndTweets">
     <header>
       <div>
         <img src="/images/profile-hex.png">
       </div>
       <div>
-        <strong>Sam</strong> Leung
+        <span class="makeBold">Sam</span> Leung
       </div>
     </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
 
-      <section class="new-tweet">
-        <div class="alert">
-          <span class="message"></span>
+
+    <!-- Tweet form and All tweets -->
+    <main class="tweetFormAndTweetsContainer">
+
+      <section class="new-tweet hiddenByDefault">
+        <!-- Area for error message above the tweet form-->
+        <div class="alert hiddenByDefault">
+          <span id="alertMessage"></span>
         </div>
-        <form id="tweetButton">
-          <label for="tweet-text">What are you humming about?</label>
-          <div><textarea name="text" id="tweet-text" placeholder="Type Here..."></textarea></div>
-          <div class="tweetButtonAndCount">
-            <button type="submit">Tweet</button>
-            <output name="counter" id="counter" class="counter" for="tweet-text">140</output>
+        <!-- Tweet form -->
+        <form id="newTweetForm">
+          <label for="textAreaUserInput" class="formLabel">What are you humming about?</label>
+
+          <!-- TextArea for user input -->
+          <textarea name="text" id="textAreaUserInput" placeholder="Type Here..."></textarea>
+
+          <!-- Tweet Button and character counter -->
+          <div class="tweetSubmitButtonAndCount">
+            <button type="submit" class="tweetButton turnOrangeWhenHover">Tweet</button>
+            <output name="counter" id="counter" for="textAreaUserInput">140</output>
           </div>
+
         </form>
       </section>
-
-      <section id="tweets-container">
+      <!-- contains all the tweets from the databbase -->
+      <section id="allTweetsContainer">
       </section>
 
     </main>
   </div>
 </body>
-<div id='ScrollToTop'><i class="fas fa-angle-double-up"></i></div>
+
+
+<!-- Scroll to Top Button -->
+<div id='ScrollToTopButton' class="hiddenByDefault">
+  <i class="fas fa-angle-double-up turnOrangeWhenHover"></i>
+</div>
 
 </html>
