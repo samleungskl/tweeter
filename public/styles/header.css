@@ -1,9 +1,6 @@
 header {
   height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  
   color: #FFFFFF;
   font-size: 1.3em;
   background-color: #cf9a3e;

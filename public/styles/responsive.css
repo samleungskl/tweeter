@@ -1,0 +1,47 @@
+/* this needs to be at the end of css so it doesn't get over written by other stuff */
+.hiddenByDefault {
+  display: none;
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 1024px) {
+
+  /* make the blue nav bar appear */
+  nav {
+    background-color: #405ba0;
+    color: #FFFFFF;
+  }
+
+  main.tweetFormAndTweetsContainer {
+    /* devide page to 50/50 */
+    width: 100%;
+    /* remove the addtional right margin */
+    margin-right: 0%;
+  }
+
+  /* make the header and allTweets to be on the same  */
+  .profileAndTweets {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 5% 5% 0% 5%;
+  }
+
+  header {
+    /* devide page to 50/50 */
+    width: 100%;
+  }
+
+  article {
+    margin: 0% 2% 2% 2%;
+  }
+
+  article header {
+    /* keep the userhandle within the border */
+    width: auto;
+  }
+
+  body {
+    margin-top: 120px;
+  }
+}

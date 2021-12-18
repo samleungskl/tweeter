@@ -1,82 +1,38 @@
 nav {
   height: 120px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+
   background-color: transparent;
   color: #FFFFFF;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0px; 
-  width: 100%;
 }
 
-nav>span {
-  display: flex;
+.logo {
   padding-left: 1.5em;
+
   font-family: 'Bungee', cursive;
   font-size: xx-large;
-  display: inline-block;
 }
 
-.composeButton {
-  display: flex;
+#composeButton {
   padding-right: 1.5em;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.fa-angle-double-down {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+#composeButtonArrow {
   color: red;
 }
 
-/* Tablet Styles */
-@media only screen and (min-width: 1024px) {
-  nav {
-    height: 120px;
-    background-color: #405ba0;
-    color: #FFFFFF;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    /* Set the navbar to fixed position */
-    top: 0px;
-    /* Position the navbar at the top of the page */
-    width: 100%;
-    /* Full width */
-  }
+/* compse button arrow up and down animation */
+#composeButtonArrow {
+  position: relative;
+  animation-name: arrowUpAndDown;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
 
-  main.container {
-    width: 100%;
-    margin-right : 0%;
-  }
-
-  .profileAndTweets {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 5%;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
-  header {
-    width: 100%;
-    display: flex;
-  }
-
-  article header {
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  body {
-      margin-top: 120px;
-    }
+@keyframes arrowUpAndDown {
+  0%   {top:0px;}
+  50%  {top:10px;}
+  100% {top:0px;}
 }
