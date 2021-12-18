@@ -6,12 +6,12 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["desktop-default"](#https://github.com/samskleung/tweeter/blob/master/screeshots/desktop-default.png)
+!["desktop-default"](https://github.com/samskleung/tweeter/blob/master/screeshots/desktop-default.png)
 
-!["desktop-composeTweet"](#https://github.com/samskleung/tweeter/blob/master/screeshots/desktop-composeTweet.png)
-!["tablet-default"](#https://github.com/samskleung/tweeter/blob/master/screeshots/tablet-default.png)
-!["tablet-composeTweet"](#https://github.com/samskleung/tweeter/blob/master/screeshots/tablet-composeTweet.png)
-!["scrollToTopButton"](#https://github.com/samskleung/tweeter/blob/master/screeshots/scrollToTopButton.png)
+!["desktop-composeTweet"](https://github.com/samskleung/tweeter/blob/master/screeshots/desktop-composeTweet.png)
+!["tablet-default"](https://github.com/samskleung/tweeter/blob/master/screeshots/tablet-default.png)
+!["tablet-composeTweet"](https://github.com/samskleung/tweeter/blob/master/screeshots/tablet-composeTweet.png)
+!["scrollToTopButton"](https://github.com/samskleung/tweeter/blob/master/screeshots/scrollToTopButton.png)
 
 ## Getting Started
 
